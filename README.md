@@ -17,14 +17,14 @@ Struktur Folder:
 
 Target:
 
-- [ ] Memahami `react-native` dan `expo`
-- [ ] Install `expo-cli` & `expo init` & setup project mobile
+- [v] Memahami `react-native` dan `expo`
+- [v] Install `expo-cli` & `expo init` & setup project mobile
 - [ ] Mencoba component Text, View, Image, StyleSheet, Button, ScrollView, FlatList
 - [ ] Mencoba useState, useEffect dalam react-native
 - [ ] Hit API server yang sudah dibuat untuk mendapatkan data
-- [ ] Mengetahui bahwa redux & redux-thunk bisa diimplementasi di react-native
-- [ ] Memahami `react-native-navigation`
-- [ ] Memahami Stack Navigation & Tab Navigation
+- [v] Mengetahui bahwa redux & redux-thunk bisa diimplementasi di react-native
+- [v] Memahami `react-native-navigation`
+- [v] Memahami Stack Navigation & Tab Navigation
 - [ ] Membuat min 2 Screen (Home, Detail)
 
 **Report:**

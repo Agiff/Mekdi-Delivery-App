@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import LoginForm from '../components/LoginForm';
 import { Text } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Image
           source={{
             uri: 'https://www.mcdelivery.co.id/id/static/1677662128341/assets/62/banners/landing_28324_1140x475pixel-INA.jpg',
@@ -35,7 +36,7 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
