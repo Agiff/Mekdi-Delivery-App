@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import LoginForm from '../components/LoginForm';
 import { Text } from 'react-native-paper';
@@ -9,10 +9,9 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image
+          style={{ width: '100%', height: 200 }}
           source={{
             uri: 'https://www.mcdelivery.co.id/id/static/1677662128341/assets/62/banners/landing_28324_1140x475pixel-INA.jpg',
-            width: '100%',
-            height: 200
           }}
         />
         <LoginForm />
