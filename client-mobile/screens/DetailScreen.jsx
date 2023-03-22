@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button, Card, Text } from 'react-native-paper';
@@ -6,6 +6,10 @@ import { formatName, formatPrice } from '../helpers';
 
 export default function DetailScreen({ navigation, route }) {
   const { Category, Ingredients, description, imgUrl, name, price } = route.params;
+
+  const handleOrder = () => {
+    navigation.navigate('MenuScreen');
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,8 +37,8 @@ export default function DetailScreen({ navigation, route }) {
           }
         </Card.Content>
         <Card.Actions>
-          <Button textColor='tomato' style={{ borderColor: 'tomato' }}>Kembali</Button>
-          <Button buttonColor='tomato'>Pesan</Button>
+          <Button textColor='tomato' style={{ borderColor: 'tomato' }} onPress={() => navigation.goBack()}>Kembali</Button>
+          <Button buttonColor='tomato' onPress={handleOrder}>Pesan</Button>
         </Card.Actions>
       </Card>
     </SafeAreaView>

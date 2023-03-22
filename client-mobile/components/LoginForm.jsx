@@ -2,7 +2,6 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { TextInput, Text } from 'react-native-paper';
 import { Checkbox } from 'react-native-paper';
-import { Button } from 'react-native-paper';
 
 export default function LoginForm() {
   const [checked, setChecked] = React.useState(false);

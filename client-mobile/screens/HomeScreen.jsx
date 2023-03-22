@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import LoginForm from '../components/LoginForm';
 import { Text } from 'react-native-paper';
