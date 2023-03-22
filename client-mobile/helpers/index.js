@@ -6,4 +6,6 @@ const formatPrice = (price) => {
   }).format(price);
 }
 
-export { formatPrice }
+const formatName = (category) => category[0].toUpperCase() + category.slice(1);
+
+export { formatPrice, formatName }
