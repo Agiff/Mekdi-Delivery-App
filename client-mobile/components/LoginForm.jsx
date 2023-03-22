@@ -37,7 +37,9 @@ export default function LoginForm() {
       <TouchableOpacity style={styles.loginButton} activeOpacity={0.5}>
         <Text style={styles.loginButtonText}>Log Masuk</Text>
       </TouchableOpacity>
-      <Text variant='bodyLarge' style={{ textAlign: 'center', marginTop: 5, marginBottom: 10 }}>Lupa password?</Text>
+      <TouchableOpacity>
+        <Text variant='bodyLarge' style={{ textAlign: 'center', marginTop: 5, marginBottom: 10 }}>Lupa password?</Text>
+      </TouchableOpacity>
     </View>
   )
 }
