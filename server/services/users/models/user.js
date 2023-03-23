@@ -34,6 +34,11 @@ class User {
     const createdUser = await this.collection().insertOne(data);
     return createdUser;
   }
+
+  static async delete(id) {
+    const deletedUser = await this.collection().deleteOne({ _id: new ObjectId(id) });
+    return deletedUser;
+  }
 }
 
 module.exports = User;
