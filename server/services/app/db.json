@@ -1,0 +1,194 @@
+{
+  "users": [
+    {
+      "username": "seirei",
+      "email": "a@a.com",
+      "password": "a",
+      "role": "admin",
+      "phoneNumber": "08481111114",
+      "address": "somewhere"
+    },
+    {
+      "username": "agif",
+      "email": "agif@mail.com",
+      "password": "qwe",
+      "role": "user",
+      "phoneNumber": "08112212123",
+      "address": "dokoka"
+    },
+    {
+      "username": "ded",
+      "email": "ded@mail.com",
+      "password": "qwe",
+      "role": "user",
+      "phoneNumber": "08112212123",
+      "address": "graveyard"
+    },
+    {
+      "username": "agif",
+      "email": "agif@agif.com",
+      "password": "123123123",
+      "phoneNumber": "08888253500",
+      "address": "Jl. Mars Barat no. 15"
+    }
+  ],
+  "items": [
+    {
+      "name": "Paket Korean Soy Garlic Wings",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",
+      "price": 31500,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112093.png",
+      "authorId": 2,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling 4pcs Korean Soy Garlic Wings",
+      "description": "A classic pizza with tomato sauce, mozzarella cheese, and pepperoni slices",
+      "price": 43500,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112097.png",
+      "authorId": 3,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling 6pcs Korean Soy Garlic Wings",
+      "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, and assorted vegetables",
+      "price": 65000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112098.png",
+      "authorId": 2,
+      "categoryId": 1
+    },
+    {
+      "name": "Promo 2 Prosperity Burger",
+      "description": "A pizza with tomato sauce, mozzarella cheese, ham, and pineapple",
+      "price": 69000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/100257.png",
+      "authorId": 1,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling 2Prosperity Burger + 2 Ayam McD",
+      "description": "A pizza with tomato sauce, mozzarella cheese, pepperoni, sausage, and bacon",
+      "price": 89000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/200105.png",
+      "authorId": 3,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling Beef Prosperity + Ayam McD",
+      "description": "A pizza with BBQ sauce, mozzarella cheese, chicken, red onion, and cilantro",
+      "price": 89000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/200106.png",
+      "authorId": 2,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling Fish Prosperity + Ayam McD",
+      "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, and assorted mushrooms",
+      "price": 89000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/220010.png",
+      "authorId": 2,
+      "categoryId": 1
+    },
+    {
+      "name": "5Style Cheese Steak Burger",
+      "description": "A pizza with garlic-infused olive oil, mozzarella cheese, and assorted toppings",
+      "price": 53500,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/100304.png",
+      "authorId": 1,
+      "categoryId": 1
+    },
+    {
+      "name": "Bundling 2 Choco Marshmallow Pie",
+      "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, bell peppers, onions, mushrooms, and olives",
+      "price": 29500,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/283031.png",
+      "authorId": 3,
+      "categoryId": 3
+    },
+    {
+      "name": "Bundling 3 Choco Marshmallow Pie",
+      "description": "A classic soda made with Coca-Cola's secret recipe",
+      "price": 44000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/283032.png",
+      "authorId": 2,
+      "categoryId": 3
+    },
+    {
+      "name": "Fruit Punch Pinneaple Fizz",
+      "description": "A refreshing glass of orange juice made from fresh oranges",
+      "price": 17000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/184098.png",
+      "authorId": 2,
+      "categoryId": 2
+    },
+    {
+      "name": "Strawberry Latte Frappe",
+      "description": "A refreshing and sweetened iced tea made from tea leaves",
+      "price": 35000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/188136.png",
+      "authorId": 3,
+      "categoryId": 2
+    },
+    {
+      "name": "Iced Strawberry Tea",
+      "description": "A refreshing and sweetened iced tea made from tea leaves",
+      "price": 24000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/188138.png",
+      "authorId": 3,
+      "categoryId": 2
+    },
+    {
+      "name": "Share Box with Spicy BBQ Crunchy Stars & Mentai Sauce",
+      "description": "A refreshing and sweetened iced tea made from tea leaves",
+      "price": 45000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112087.png",
+      "authorId": 3,
+      "categoryId": 1
+    },
+    {
+      "name": "Paket Hantaran McD",
+      "description": "A refreshing and sweetened iced tea made from tea leaves",
+      "price": 129000,
+      "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/211150.png",
+      "authorId": 3,
+      "categoryId": 1
+    }
+  ],
+  "categories": [
+    {
+      "name": "food"
+    },
+    {
+      "name": "beverage"
+    },
+    {
+      "name": "snack"
+    }
+  ],
+  "ingredients": [
+    {
+      "itemId": 1,
+      "name": "flour"
+    },
+    {
+      "itemId": 1,
+      "name": "meat"
+    },
+    {
+      "itemId": 11,
+      "name": "water"
+    },
+    {
+      "itemId": 11,
+      "name": "sugar"
+    },
+    {
+      "itemId": 2,
+      "name": "flour"
+    },
+    {
+      "itemId": 2,
+      "name": "sausage"
+    }
+  ]
+}
