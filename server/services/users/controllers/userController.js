@@ -10,6 +10,16 @@ class userController {
     }
   }
 
+  static async findUser(req, res) {
+    try {
+      const { id } = req.params;
+      const user = await User.findOne(id);
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
+
   static async addUser(req, res) {
     try {
       const { username, email, password, role, phoneNumber, address } = req.body;
