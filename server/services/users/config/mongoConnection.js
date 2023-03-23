@@ -19,4 +19,4 @@ async function mongoConnect() {
 
 const getDatabase = () => db;
 
-module.exports = { mongoConnect, db, getDatabase };
+module.exports = { mongoConnect, getDatabase };
