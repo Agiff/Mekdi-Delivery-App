@@ -51,9 +51,9 @@ Target:
 - [v] Membuat Server Baru, Microservices
 - [v] Memisahkan service user dan app
 - [v] Membuat Orchestrator-express yang bisa komunikasi ke service user dan app
-- [ ] Memahami cache dalam database
-- [ ] Install dataabase Redis dan menggunakan ioRedis sebagai cache
-- [ ] Menjaga relasi User dengan product pada microservice
+- [v] Memahami cache dalam database
+- [v] Install dataabase Redis dan menggunakan ioRedis sebagai cache
+- [v] Menjaga relasi User dengan product pada microservice
 
 **Report:**
 

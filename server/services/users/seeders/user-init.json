@@ -1,0 +1,29 @@
+[
+  {
+    "postgresId": 1,
+    "username": "seirei",
+    "email": "a@a.com",
+    "password": "a",
+    "role": "admin",
+    "phoneNumber": "08481111114",
+    "address": "somewhere"
+  },
+  {
+    "postgresId": 2,
+    "username": "agif",
+    "email": "agif@mail.com",
+    "password": "qwe",
+    "role": "user",
+    "phoneNumber": "08112212123",
+    "address": "dokoka"
+  },
+  {
+    "postgresId": 3,
+    "username": "ded",
+    "email": "ded@mail.com",
+    "password": "qwe",
+    "role": "user",
+    "phoneNumber": "08112212123",
+    "address": "graveyard"
+  }
+]

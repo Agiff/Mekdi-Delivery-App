@@ -62,7 +62,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     authorId: DataTypes.STRING,
-    categoryId: DataTypes.INTEGER
+    categoryId: DataTypes.INTEGER,
+    UserMongoId: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Item',

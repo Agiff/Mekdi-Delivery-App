@@ -38,7 +38,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,",
       "price": 31500,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112093.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 1
     },
     {
@@ -46,7 +46,7 @@
       "description": "A classic pizza with tomato sauce, mozzarella cheese, and pepperoni slices",
       "price": 43500,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112097.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 1
     },
     {
@@ -54,7 +54,7 @@
       "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, and assorted vegetables",
       "price": 65000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112098.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 1
     },
     {
@@ -62,7 +62,7 @@
       "description": "A pizza with tomato sauce, mozzarella cheese, ham, and pineapple",
       "price": 69000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/100257.png",
-      "authorId": "641c18eb956f448da9b6e562",
+      "authorId": 1,
       "categoryId": 1
     },
     {
@@ -70,7 +70,7 @@
       "description": "A pizza with tomato sauce, mozzarella cheese, pepperoni, sausage, and bacon",
       "price": 89000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/200105.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 1
     },
     {
@@ -78,7 +78,7 @@
       "description": "A pizza with BBQ sauce, mozzarella cheese, chicken, red onion, and cilantro",
       "price": 89000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/200106.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 1
     },
     {
@@ -86,7 +86,7 @@
       "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, and assorted mushrooms",
       "price": 89000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/220010.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 1
     },
     {
@@ -94,7 +94,7 @@
       "description": "A pizza with garlic-infused olive oil, mozzarella cheese, and assorted toppings",
       "price": 53500,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/100304.png",
-      "authorId": "641c18eb956f448da9b6e562",
+      "authorId": 1,
       "categoryId": 1
     },
     {
@@ -102,7 +102,7 @@
       "description": "A vegetarian pizza with tomato sauce, mozzarella cheese, bell peppers, onions, mushrooms, and olives",
       "price": 29500,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/283031.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 3
     },
     {
@@ -110,7 +110,7 @@
       "description": "A classic soda made with Coca-Cola's secret recipe",
       "price": 44000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/283032.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 3
     },
     {
@@ -118,7 +118,7 @@
       "description": "A refreshing glass of orange juice made from fresh oranges",
       "price": 17000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/184098.png",
-      "authorId": "641c1916956f448da9b6e563",
+      "authorId": 2,
       "categoryId": 2
     },
     {
@@ -126,7 +126,7 @@
       "description": "A refreshing and sweetened iced tea made from tea leaves",
       "price": 35000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/188136.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 2
     },
     {
@@ -134,7 +134,7 @@
       "description": "A refreshing and sweetened iced tea made from tea leaves",
       "price": 24000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/188138.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 2
     },
     {
@@ -142,7 +142,7 @@
       "description": "A refreshing and sweetened iced tea made from tea leaves",
       "price": 45000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/112087.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 1
     },
     {
@@ -150,7 +150,7 @@
       "description": "A refreshing and sweetened iced tea made from tea leaves",
       "price": 129000,
       "imgUrl": "https://www.mcdelivery.co.id/id/static/1679045254198/assets/62/products/211150.png",
-      "authorId": "641c1950956f448da9b6e564",
+      "authorId": 3,
       "categoryId": 1
     }
   ],

@@ -11,7 +11,7 @@ class itemController {
       const response = await axios.get(userUrl + 'users');
       const items = data.map(el => {
         response.data.forEach(user => {
-          if (el.authorId === user._id) {
+          if (el.UserMongoId === user._id) {
             el.User = user;
           }
         });
@@ -31,7 +31,7 @@ class itemController {
       if (itemDetailCache) return res.status(200).json(JSON.parse(itemDetailCache));
 
       const { data } = await axios.get(entityUrl + 'items/' + req.params.id);
-      const response = await axios.get(userUrl + 'users/' + data.authorId);
+      const response = await axios.get(userUrl + 'users/' + data.UserMongoId);
       data.User = response.data;
 
       await redis.set('app:itemDetail', JSON.stringify(data));
