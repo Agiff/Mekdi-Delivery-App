@@ -14,11 +14,6 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    const users = require('../db.json').users.map(el => {
-      el.createdAt = el.updatedAt = new Date();
-      el.password = hashPassword(el.password);
-      return el;
-    })
     const categories = require('../db.json').categories.map(el => {
       el.createdAt = el.updatedAt = new Date();
       return el;
@@ -33,7 +28,6 @@ module.exports = {
     })
     
     await queryInterface.bulkInsert('Categories', categories, {});
-    await queryInterface.bulkInsert('Users', users, {});
     await queryInterface.bulkInsert('Items', items, {});
     await queryInterface.bulkInsert('Ingredients', ingredients, {});
   },

@@ -1,10 +1,10 @@
-const { Item, Ingredient, Category, User, sequelize } = require('../models');
+const { Item, Ingredient, Category, sequelize } = require('../models');
 
 class itemController {
   static async showItems(req, res, next) {
     try {
       const items = await Item.findAll({
-        include: [Category, User, Ingredient]
+        include: [Category, Ingredient]
       });
       res.status(200).json(items);
     } catch (error) {
@@ -52,10 +52,9 @@ class itemController {
   static async createItem(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { id } = req.user;
-      const { name, description, price, imgUrl, categoryId, ingredients } = req.body;
+      const { name, description, price, imgUrl, categoryId, ingredients, authorId } = req.body;
       const createdItem = await Item.create(
-        { name, description, price, imgUrl, categoryId, authorId: id },
+        { name, description, price, imgUrl, categoryId, authorId },
         { transaction: t });
 
       const newIngredients = ingredients.filter(el => el !== '').map(el => {

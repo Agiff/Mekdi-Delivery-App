@@ -10,9 +10,6 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Item.belongsTo(models.User, {
-        foreignKey: 'authorId'
-      });
       Item.belongsTo(models.Category, {
         foreignKey: 'categoryId'
       });
@@ -64,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'Image is required' }
       }
     },
-    authorId: DataTypes.INTEGER,
+    authorId: DataTypes.STRING,
     categoryId: DataTypes.INTEGER
   }, {
     sequelize,

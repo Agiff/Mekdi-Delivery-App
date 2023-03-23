@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "qwerty123",
-    "database": "pizza_donald_db",
+    "database": "donald_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
