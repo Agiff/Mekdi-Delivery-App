@@ -42,8 +42,7 @@ class itemController {
 
   static async updateItem (req, res) {
     try {
-      const { id } = req.params;
-      const { data } = await axios.put(`${entityUrl}items/${id}`, req.body);
+      const { data } = await axios.put(entityUrl + 'items/' + req.params.id, req.body);
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -52,8 +51,7 @@ class itemController {
 
   static async deleteItem (req, res) {
     try {
-      const { id } = req.params;
-      const { data } = await axios.delete(`${entityUrl}items/${id}`);
+      const { data } = await axios.delete(entityUrl + 'items/' + req.params.id);
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
