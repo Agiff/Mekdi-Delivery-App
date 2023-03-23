@@ -37,8 +37,8 @@ Target:
 
 - [ ] Memahami React Native Gesture Handler
 - [v] Memahami NoSQL: Mongodb
-- [ ] Membuat service users dengan Mongodb (Kerjakan di `server/services/users`)
-- [ ] Membuat action pada users: Read, Create & Delete (Update optional)
+- [v] Membuat service users dengan Mongodb (Kerjakan di `server/services/users`)
+- [v] Membuat action pada users: Read, Create & Delete (Update optional)
 
 **Report:**
 
@@ -48,9 +48,9 @@ Target:
 
 Target:
 
-- [ ] Membuat Server Baru, Microservices
-- [ ] Memisahkan service user dan app
-- [ ] Membuat Orchestrator-express yang bisa komunikasi ke service user dan app
+- [v] Membuat Server Baru, Microservices
+- [v] Memisahkan service user dan app
+- [v] Membuat Orchestrator-express yang bisa komunikasi ke service user dan app
 - [ ] Memahami cache dalam database
 - [ ] Install dataabase Redis dan menggunakan ioRedis sebagai cache
 - [ ] Menjaga relasi User dengan product pada microservice
