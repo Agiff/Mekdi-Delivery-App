@@ -1,10 +1,14 @@
 const axios = require('axios');
-const { userUrl } = require("../config");
+const { userUrl, redis } = require("../config");
 
 class userController {
   static async showUsers(req, res, next) {
     try {
-      const { data } = await axios.get(userUrl + 'users')
+      const userCache = await redis.get('app:users');
+      if (userCache) return res.status(200).json(JSON.parse(userCache));
+
+      const { data } = await axios.get(userUrl + 'users');
+      await redis.set('app:users', JSON.stringify(data));
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -13,7 +17,11 @@ class userController {
 
   static async findUser(req, res, next) {
     try {
+      const userDetailCache = await redis.get('app:userDetail');
+      if (userDetailCache) return res.status(200).json(JSON.parse(userDetailCache));
+
       const { data } = await axios.get(userUrl + 'users/' + req.params.id);
+      await redis.set('app:userDetail', JSON.stringify(data));
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -23,6 +31,8 @@ class userController {
   static async addUser(req, res, next) {
     try {
       const { data } = await axios.post(userUrl + 'users', req.body);
+      await redis.del('app:users');
+      await redis.del('app:userDetail');
       res.status(201).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -32,6 +42,8 @@ class userController {
   static async removeUser(req, res, next) {
     try {
       const { data } = await axios.delete(userUrl + 'users/' + req.params.id);
+      await redis.del('app:users');
+      await redis.del('app:userDetail');
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
