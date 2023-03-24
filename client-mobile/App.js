@@ -1,12 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './navigators/TabNavigator';
+import { ApolloProvider } from '@apollo/client';
+import client from './config/apollo';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer>
+    </ApolloProvider>
   );
 }
 

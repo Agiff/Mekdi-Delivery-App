@@ -29,15 +29,14 @@ export default function CategoryBar({ filterHandler }) {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {
           categories?.map(category => {
-            return <>
+            return <View key={category.id}>
               <TouchableOpacity
-                key={category.id}
                 style={activeBar === category.name ? styles.categoryContainerSelected : styles.categoryContainer}
                 onPress={() => changeActiveBar(category.name)}
               >
                 <Text style={styles.categoryText}>{formatName(category.name)}</Text>
               </TouchableOpacity>
-            </>
+            </View>
           })
         }
       </ScrollView>

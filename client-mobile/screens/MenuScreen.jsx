@@ -5,39 +5,30 @@ import { baseUrl } from '../config';
 import ItemCard from '../components/ItemCard';
 import { ActivityIndicator } from 'react-native-paper';
 import CategoryBar from '../components/CategoryBar';
+import { useQuery } from '@apollo/client';
+import { GET_ITEMS } from '../config/queries';
 
 export default function MenuScreen() {
   const [items, setItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { loading, data, error } = useQuery(GET_ITEMS);
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(baseUrl + 'items')
-      .then(res => {
-        if (!res.ok) throw res.text();
-        return res.json();
-      })
-      .then(data => {
-        data = data.filter(el => el.Category.name === 'food');
-        setItems(data);
-        setIsLoading(false);
-      })
-      .catch(err => console.log(err));
-  }, [])
+    setItems(data?.getItems || {});
+  }, [data])
 
   const filterHandler = (category) => {
-    setIsLoading(true);
-    fetch(baseUrl + 'items')
-      .then(res => {
-        if (!res.ok) throw res.text();
-        return res.json();
-      })
-      .then(data => {
-        data = data.filter(el => el.Category.name === category);
-        setItems(data);
-        setIsLoading(false);
-      })
-      .catch(err => console.log(err));
+    // setIsLoading(true);
+    // fetch(baseUrl + 'items')
+    //   .then(res => {
+    //     if (!res.ok) throw res.text();
+    //     return res.json();
+    //   })
+    //   .then(data => {
+    //     data = data.filter(el => el.Category.name === category);
+    //     setItems(data);
+    //     setIsLoading(false);
+    //   })
+    //   .catch(err => console.log(err));
   }
 
   return (
@@ -46,7 +37,7 @@ export default function MenuScreen() {
         <CategoryBar filterHandler={filterHandler}/>
       </View>
       {
-        isLoading ? <ActivityIndicator animating={true} color={'red'} size='large' style={styles.loading} /> :
+        loading ? <ActivityIndicator animating={true} color={'red'} size='large' style={styles.loading} /> :
         <FlatList
           showsVerticalScrollIndicator={false}
           data={items}
