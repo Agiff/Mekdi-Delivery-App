@@ -32,7 +32,7 @@ const typeDefs = `#graphql
     address: String
   }
 
-  type CreateSuccess {
+  type SuccessMessage {
     message: String
   }
 
@@ -56,7 +56,8 @@ const typeDefs = `#graphql
   }
 
   type Mutation {
-    createItem(newItem: newItem): CreateSuccess
+    createItem(newItem: newItem): SuccessMessage
+    updateItem(id: ID, newItem: newItem): SuccessMessage
   }
 `;
 
@@ -110,6 +111,24 @@ const resolvers = {
         throw error;
       }
     },
+    updateItem: async (_, { id, newItem }) => {
+      try {
+        const { name, description, price, imgUrl, categoryId, UserMongoId, ingredients } = newItem;
+        const newIngredients = ingredients.map(el => el.name);
+        const { data: response } = await axios.put(entityUrl + 'items/' + id, {
+          name,
+          description,
+          price,
+          imgUrl,
+          categoryId,
+          UserMongoId,
+          ingredients: newIngredients,
+        });
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    }
   }
 };
 
