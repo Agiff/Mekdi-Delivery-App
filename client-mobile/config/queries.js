@@ -32,3 +32,23 @@ export const GET_ITEM_DETAIL = gql`
     }
   }
 `;
+
+export const GET_ITEMS_BY_CATEGORY = gql`
+  query GetItemsByCategory($category: String!) {
+    getItemsByCategory(category: $category) {
+      id
+      name
+      price
+      imgUrl
+    }
+  }
+`;
+
+export const GET_CATEGORIES = gql`
+  query GetCategories {
+    getCategories {
+      id
+      name
+    }
+  }
+`;

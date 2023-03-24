@@ -53,6 +53,7 @@ const typeDefs = `#graphql
   type Query {
     getItems: [Item]
     findItem(id: ID!): Item
+    getItemsByCategory(category: String!): [Item]
   }
 
   type Mutation {
@@ -91,6 +92,21 @@ const resolvers = {
         throw error;
       }
     },
+    getItemsByCategory: async (_, { category }) => {
+      try {
+        const { data: items } = await axios.get(entityUrl + 'items');
+        const { data: users } = await axios.get(userUrl + 'users');
+        return items.map(item => {
+          const user = users.find(el => el._id === item.UserMongoId);
+          if (user) item.user = { ...user, id: user._id };
+          item.category = item.Category;
+          item.ingredients = item.Ingredients;
+          return item;
+        }).filter(item => item.category.name === category);
+      } catch (error) {
+        throw error;
+      }
+    }
   },
   Mutation: {
     createItem: async (_, { newItem }) => {
