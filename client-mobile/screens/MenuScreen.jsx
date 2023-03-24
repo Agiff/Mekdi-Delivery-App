@@ -13,7 +13,7 @@ export default function MenuScreen() {
   const { loading, data, error } = useQuery(GET_ITEMS);
 
   useEffect(() => {
-    setItems(data?.getItems || {});
+    setItems(data?.getItems || []);
   }, [data])
 
   const filterHandler = (category) => {
@@ -30,6 +30,8 @@ export default function MenuScreen() {
     //   })
     //   .catch(err => console.log(err));
   }
+
+  if (error) return <Text>Error</Text>
 
   return (
     <SafeAreaView style={styles.container}>
