@@ -57,7 +57,8 @@ const typeDefs = `#graphql
 
   type Mutation {
     createItem(newItem: newItem): SuccessMessage
-    updateItem(id: ID, newItem: newItem): SuccessMessage
+    updateItem(id: ID!, newItem: newItem): SuccessMessage
+    deleteItem(id: ID!): SuccessMessage
   }
 `;
 
@@ -78,9 +79,8 @@ const resolvers = {
         throw error;
       }
     },
-    findItem: async (_, args) => {
+    findItem: async (_, { id }) => {
       try {
-        const { id } = args;
         const { data: item } = await axios.get(entityUrl + 'items/' + id);
         const { data: user } = await axios.get(userUrl + 'users/' + item.UserMongoId);
         item.category = item.Category;
@@ -124,6 +124,14 @@ const resolvers = {
           UserMongoId,
           ingredients: newIngredients,
         });
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    },
+    deleteItem: async (_, { id }) => {
+      try {
+        const { data: response } = await axios.delete(entityUrl + 'items/' + id);
         return response;
       } catch (error) {
         throw error;
