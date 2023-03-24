@@ -9,7 +9,7 @@ const typeDefs = `#graphql
     price: Int
     imgUrl: String
     category: Category
-    ingredients: [Ingredients]
+    ingredients: [Ingredient]
     user: User
   }
 
@@ -18,7 +18,7 @@ const typeDefs = `#graphql
     name: String
   }
 
-  type Ingredients {
+  type Ingredient {
     id: ID
     name: String
   }
@@ -32,9 +32,31 @@ const typeDefs = `#graphql
     address: String
   }
 
+  type CreateSuccess {
+    message: String
+  }
+
+  input newItem {
+    name: String
+    description: String
+    price: Int
+    imgUrl: String
+    categoryId: Int
+    UserMongoId: String
+    ingredients: [newIngredient]
+  }
+
+  input newIngredient {
+    name: String
+  }
+
   type Query {
     getItems: [Item]
     findItem(id: ID!): Item
+  }
+
+  type Mutation {
+    createItem(newItem: newItem): CreateSuccess
   }
 `;
 
@@ -69,6 +91,26 @@ const resolvers = {
       }
     },
   },
+  Mutation: {
+    createItem: async (_, { newItem }) => {
+      try {
+        const { name, description, price, imgUrl, categoryId, UserMongoId, ingredients } = newItem;
+        const newIngredients = ingredients.map(el => el.name);
+        const { data: response } = await axios.post(entityUrl + 'items', {
+          name,
+          description,
+          price,
+          imgUrl,
+          categoryId,
+          UserMongoId,
+          ingredients: newIngredients,
+        });
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    },
+  }
 };
 
 module.exports = { typeDefs, resolvers };
