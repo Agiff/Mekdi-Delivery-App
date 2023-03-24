@@ -52,9 +52,9 @@ class itemController {
   static async createItem(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { name, description, price, imgUrl, categoryId, ingredients, authorId } = req.body;
+      const { name, description, price, imgUrl, categoryId, ingredients, UserMongoId } = req.body;
       const createdItem = await Item.create(
-        { name, description, price, imgUrl, categoryId, authorId },
+        { name, description, price, imgUrl, categoryId, UserMongoId },
         { transaction: t });
 
       const newIngredients = ingredients.filter(el => el !== '').map(el => {
