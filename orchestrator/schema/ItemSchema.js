@@ -24,7 +24,7 @@ const typeDefs = `#graphql
   }
 
   type User {
-    _id: ID
+    id: ID
     username: String
     email: String
     role: String
@@ -33,23 +33,37 @@ const typeDefs = `#graphql
   }
 
   type Query {
-    items: [Item]
+    getItems: [Item]
+    findItem(id: ID!): Item
   }
 `;
 
 const resolvers = {
   Query: {
-    items: async () => {
+    getItems: async () => {
       try {
         const { data: items } = await axios.get(entityUrl + 'items');
         const { data: users } = await axios.get(userUrl + 'users');
         return items.map(item => {
           const user = users.find(el => el._id === item.UserMongoId);
-          if (user) item.user = user;
+          if (user) item.user = { ...user, id: user._id };
           item.category = item.Category;
           item.ingredients = item.Ingredients;
           return item;
         });
+      } catch (error) {
+        throw error;
+      }
+    },
+    findItem: async (_, args) => {
+      try {
+        const { id } = args;
+        const { data: item } = await axios.get(entityUrl + 'items/' + id);
+        const { data: user } = await axios.get(userUrl + 'users/' + item.UserMongoId);
+        item.category = item.Category;
+        item.ingredients = item.Ingredients;
+        item.user = user;
+        return item;
       } catch (error) {
         throw error;
       }
