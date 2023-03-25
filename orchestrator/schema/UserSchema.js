@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { userUrl } = require('../config');
+const { userUrl, redis } = require('../config');
 
 const typeDefs = `#graphql
   type User {
@@ -45,11 +45,15 @@ const resolvers = {
   Query: {
     getUsers: async () => {
       try {
+        const userCache = await redis.get('app:users');
+        if (userCache) return JSON.parse(userCache);
         const { data: users } = await axios.get(userUrl + 'users');
-        return users.map(el => {
+        const newUsers = users.map(el => {
           el.id = el._id;
           return el;
         });
+        await redis.set('app:users', JSON.stringify(newUsers), 'EX', 600);
+        return newUsers;
       } catch (error) {
         throw error;
       }
@@ -75,6 +79,7 @@ const resolvers = {
           phoneNumber,
           address
         });
+        await redis.del('app:users');
         return response;
       } catch (error) {
         throw error;
@@ -83,7 +88,7 @@ const resolvers = {
     deleteUser: async (_, { id }) => {
       try {
         const { data: response } = await axios.delete(userUrl + 'users/' + id);
-        console.log(response);
+        await redis.del('app:users');
         return response;
       } catch (error) {
         throw error;

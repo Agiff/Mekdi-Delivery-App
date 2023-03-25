@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { entityUrl, userUrl } = require('../config');
+const { entityUrl, userUrl, redis } = require('../config');
 
 const typeDefs = `#graphql
   type Item {
@@ -67,15 +67,19 @@ const resolvers = {
   Query: {
     getItems: async () => {
       try {
+        const itemCache = await redis.get('app:items');
+        if (itemCache) return JSON.parse(itemCache);
         const { data: items } = await axios.get(entityUrl + 'items');
         const { data: users } = await axios.get(userUrl + 'users');
-        return items.map(item => {
+        const newItems = items.map(item => {
           const user = users.find(el => el._id === item.UserMongoId);
           if (user) item.user = { ...user, id: user._id };
           item.category = item.Category;
           item.ingredients = item.Ingredients;
           return item;
         });
+        await redis.set('app:items', JSON.stringify(newItems), 'EX', 600);
+        return newItems;
       } catch (error) {
         throw error;
       }
@@ -94,15 +98,19 @@ const resolvers = {
     },
     getItemsByCategory: async (_, { category }) => {
       try {
+        const itemCache = await redis.get('app:items:' + category);
+        if (itemCache) return JSON.parse(itemCache);
         const { data: items } = await axios.get(entityUrl + 'items');
         const { data: users } = await axios.get(userUrl + 'users');
-        return items.map(item => {
+        const newItems = items.map(item => {
           const user = users.find(el => el._id === item.UserMongoId);
           if (user) item.user = { ...user, id: user._id };
           item.category = item.Category;
           item.ingredients = item.Ingredients;
           return item;
         }).filter(item => item.category.name === category);
+        await redis.set('app:items:' + category, JSON.stringify(newItems), 'EX', 600);
+        return newItems;
       } catch (error) {
         throw error;
       }
@@ -122,6 +130,7 @@ const resolvers = {
           UserMongoId,
           ingredients: newIngredients,
         });
+        await redis.flushall();
         return response;
       } catch (error) {
         throw error;
@@ -140,6 +149,7 @@ const resolvers = {
           UserMongoId,
           ingredients: newIngredients,
         });
+        await redis.flushall();
         return response;
       } catch (error) {
         throw error;
@@ -148,6 +158,7 @@ const resolvers = {
     deleteItem: async (_, { id }) => {
       try {
         const { data: response } = await axios.delete(entityUrl + 'items/' + id);
+        await redis.flushall();
         return response;
       } catch (error) {
         throw error;

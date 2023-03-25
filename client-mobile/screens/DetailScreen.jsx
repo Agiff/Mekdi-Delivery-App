@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, ToastAndroid, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button, Card, Text } from 'react-native-paper';
@@ -22,6 +22,7 @@ export default function DetailScreen({ navigation, route }) {
   
   const handleOrder = () => {
     navigation.navigate('MenuScreen');
+    ToastAndroid.showWithGravity('Terima kasih atas pesanannya', 1000, ToastAndroid.TOP);
   }
 
   if (error) return <Text>Error</Text>
