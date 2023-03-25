@@ -1,7 +1,6 @@
 import { FlatList, StyleSheet, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { baseUrl } from '../config';
 import ItemCard from '../components/ItemCard';
 import { ActivityIndicator } from 'react-native-paper';
 import CategoryBar from '../components/CategoryBar';

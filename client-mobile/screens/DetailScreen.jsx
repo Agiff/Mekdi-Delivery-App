@@ -1,4 +1,4 @@
-import { StyleSheet, ToastAndroid, View } from 'react-native'
+import { StyleSheet, ToastAndroid, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button, Card, Text } from 'react-native-paper';
@@ -6,8 +6,10 @@ import { formatName, formatPrice } from '../helpers';
 import { useQuery } from '@apollo/client';
 import { GET_ITEM_DETAIL } from '../config/queries';
 import { ActivityIndicator } from 'react-native-paper';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function DetailScreen({ navigation, route }) {
+  const [favourite, setFavourite] = useState(false);
   const [item, setItem] = useState({});
   const { id } = route.params;
   const { loading, data, error } = useQuery(GET_ITEM_DETAIL, {
@@ -25,6 +27,11 @@ export default function DetailScreen({ navigation, route }) {
     ToastAndroid.showWithGravity('Terima kasih atas pesanannya', 1000, ToastAndroid.TOP);
   }
 
+  const toggleFavourite = () => {
+    if (favourite) return setFavourite(false);
+    setFavourite(true);
+  }
+
   if (error) return <Text>Error</Text>
 
   return (
@@ -39,9 +46,12 @@ export default function DetailScreen({ navigation, route }) {
           <Card.Content>
             <View style={styles.priceContainer}>
               <Text style={styles.priceText}>{formatPrice(item.price)}</Text>
-              <Text style={styles.categoryText}>{item.category? formatName(item.category.name) : ''}</Text>
+              <TouchableOpacity onPress={() => toggleFavourite()}>
+                <Ionicons name={favourite ? 'bookmark' : 'bookmark-outline'} size={24} color={'orange'} style={{ alignSelf: 'flex-end' }}/>
+              </TouchableOpacity>
             </View>
             <View style={styles.descriptionContainer}>
+              <Text style={styles.categoryText}>{item.category? formatName(item.category.name) : ''}</Text>
               <Text style={styles.descriptionText}>{item.description}</Text>
             </View>
             <Text style={styles.nameText}>Ingredient list:</Text>
@@ -92,7 +102,8 @@ const styles = StyleSheet.create({
   },
   categoryText: {
     fontWeight: 'bold',
-    fontSize: 16
+    fontSize: 16,
+    marginBottom: 5
   },
   descriptionContainer: {
     marginBottom: 10
