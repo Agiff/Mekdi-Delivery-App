@@ -26,7 +26,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       authorId: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       categoryId: {

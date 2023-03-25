@@ -52,9 +52,9 @@ class itemController {
   static async createItem(req, res, next) {
     const t = await sequelize.transaction();
     try {
-      const { name, description, price, imgUrl, categoryId, ingredients, authorId } = req.body;
+      const { name, description, price, imgUrl, categoryId, ingredients, UserMongoId } = req.body;
       const createdItem = await Item.create(
-        { name, description, price, imgUrl, categoryId, authorId },
+        { name, description, price, imgUrl, categoryId, UserMongoId },
         { transaction: t });
 
       const newIngredients = ingredients.filter(el => el !== '').map(el => {
@@ -71,14 +71,26 @@ class itemController {
   }
 
   static async updateItem(req, res, next) {
+    const t = await sequelize.transaction();
     try {
       const { id } = req.params;
-      const { name, description, price, imgUrl, categoryId } = req.body;
+      const { name, description, price, imgUrl, categoryId, ingredients } = req.body;
       const item = await Item.findByPk(id);
       if (!item) throw { name: 'NotFound' };
-      const updatedItem = await item.update({ name, description, price, imgUrl, categoryId });
-      res.status(200).json(updatedItem);
+      const updatedItem = await item.update(
+        { name, description, price, imgUrl, categoryId },
+        { transaction: t });
+      
+      const newIngredients = ingredients.filter(el => el !== '').map(el => {
+        return { name: el, itemId: updatedItem.id }
+      })
+      await Ingredient.destroy({ where: { itemId: updatedItem.id } }, { transaction: t });
+      await Ingredient.bulkCreate(newIngredients, { transaction: t });
+
+      await t.commit();
+      res.status(200).json({ message: 'Item updated' });
     } catch (error) {
+      await t.rollback();
       next(error);
     }
   }

@@ -2,10 +2,14 @@ import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import React, { useEffect, useState } from 'react'
 import { baseUrl } from '../config';
 import { formatName } from '../helpers';
+import { useQuery } from '@apollo/client';
+import { GET_CATEGORIES } from '../config/queries';
 
 export default function CategoryBar({ filterHandler }) {
   const [categories, setCategories] = useState([]);
   const [activeBar, setActiveBar] = useState('food');
+
+  const { loading, data, error } = useQuery(GET_CATEGORIES);
 
   const changeActiveBar = (category) => {
     setActiveBar(category);
@@ -13,31 +17,24 @@ export default function CategoryBar({ filterHandler }) {
   }
 
   useEffect(() => {
-    fetch(baseUrl + 'categories')
-      .then(res => {
-        if (!res.ok) throw res.text();
-        return res.json();
-      })
-      .then(data => {
-        setCategories(data);
-      })
-      .catch(err => console.log(err));
-  }, [])
+    setCategories(data?.getCategories || []);
+  }, [data])
+
+  if (error) return <Text>Error</Text>
   
   return (
     <View style={styles.container}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {
-          categories?.map(category => {
-            return <>
+          loading ? '' : categories?.map(category => {
+            return <View key={category.id}>
               <TouchableOpacity
-                key={category.id}
                 style={activeBar === category.name ? styles.categoryContainerSelected : styles.categoryContainer}
                 onPress={() => changeActiveBar(category.name)}
               >
                 <Text style={styles.categoryText}>{formatName(category.name)}</Text>
               </TouchableOpacity>
-            </>
+            </View>
           })
         }
       </ScrollView>

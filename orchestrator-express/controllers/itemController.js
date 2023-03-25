@@ -17,7 +17,7 @@ class itemController {
         });
         return el;
       })
-      await redis.set('app:items', JSON.stringify(items));
+      await redis.set('app:items', JSON.stringify(items), 'EX', 600);
       res.status(200).json(items);
     } catch (error) {
       console.log(error);
@@ -27,14 +27,9 @@ class itemController {
 
   static async findItem (req, res) {
     try {
-      const itemDetailCache = await redis.get('app:itemDetail');
-      if (itemDetailCache) return res.status(200).json(JSON.parse(itemDetailCache));
-
       const { data } = await axios.get(entityUrl + 'items/' + req.params.id);
       const response = await axios.get(userUrl + 'users/' + data.UserMongoId);
       data.User = response.data;
-
-      await redis.set('app:itemDetail', JSON.stringify(data));
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -45,7 +40,6 @@ class itemController {
     try {
       const { data } = await axios.post(entityUrl + 'items', req.body);
       await redis.del('app:items');
-      await redis.del('app:itemDetail');
       res.status(201).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -56,7 +50,6 @@ class itemController {
     try {
       const { data } = await axios.put(entityUrl + 'items/' + req.params.id, req.body);
       await redis.del('app:items');
-      await redis.del('app:itemDetail');
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);
@@ -67,7 +60,6 @@ class itemController {
     try {
       const { data } = await axios.delete(entityUrl + 'items/' + req.params.id);
       await redis.del('app:items');
-      await redis.del('app:itemDetail');
       res.status(200).json(data);
     } catch (error) {
       res.status(error.response.status).json(error.response.data);

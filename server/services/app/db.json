@@ -17,19 +17,19 @@
       "address": "dokoka"
     },
     {
-      "username": "ded",
-      "email": "ded@mail.com",
+      "username": "admin",
+      "email": "admin@mail.com",
       "password": "qwe",
       "role": "user",
       "phoneNumber": "08112212123",
-      "address": "graveyard"
+      "address": "admin house"
     },
     {
-      "username": "agif",
-      "email": "agif@agif.com",
+      "username": "user",
+      "email": "user@mail.com",
       "password": "123123123",
-      "phoneNumber": "08888253500",
-      "address": "Jl. Mars Barat no. 15"
+      "phoneNumber": "08154312421",
+      "address": "Mars"
     }
   ],
   "items": [
@@ -163,6 +163,12 @@
     },
     {
       "name": "snack"
+    },
+    {
+      "name": "dessert"
+    },
+    {
+      "name": "ice cream"
     }
   ],
   "ingredients": [

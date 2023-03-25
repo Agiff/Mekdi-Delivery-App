@@ -8,7 +8,7 @@ export default function ItemCard({ item }) {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Detail', item)}>
+    <TouchableOpacity style={styles.container} onPress={() => navigation.navigate('Detail', { id: item.id })}>
       <Image
         style={styles.itemImage}
         source={{
