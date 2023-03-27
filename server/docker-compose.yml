@@ -1,0 +1,19 @@
+services:
+  app-services:
+    build: ./services/app
+    container_name: app-services
+    ports:
+      - "4002:4002"
+  user-services:
+    build: ./services/users
+    container_name: user-services
+    ports:
+      - "4001:4001"
+  orchestrator:
+    build: ./orchestrator
+    container_name: orchestrator
+    ports:
+      - "4000:4000"
+    environment:
+      - APP_SERVICE_URL=http://localhost:4002
+      - USER_SERVICE_URL=http://localhost:4001
