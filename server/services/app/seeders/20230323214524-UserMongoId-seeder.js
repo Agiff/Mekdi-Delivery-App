@@ -13,15 +13,15 @@ module.exports = {
      * }], {});
     */
     await queryInterface.bulkUpdate('Items',
-      { UserMongoId: '641ccae60999029b686a7e49' },
+      { UserMongoId: '642182ddbb8c462d946114c4' },
       { authorId: 1 }
     );
     await queryInterface.bulkUpdate('Items',
-      { UserMongoId: '641ccae60999029b686a7e4a' },
+      { UserMongoId: '642182ddbb8c462d946114c5' },
       { authorId: 2 }
     );
     await queryInterface.bulkUpdate('Items',
-      { UserMongoId: '641ccae60999029b686a7e4b' },
+      { UserMongoId: '642182ddbb8c462d946114c6' },
       { authorId: 3 }
     );
   },
