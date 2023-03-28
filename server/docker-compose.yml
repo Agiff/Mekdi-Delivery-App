@@ -14,7 +14,7 @@ services:
       - "4001:4001"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=${MONGO_URL}
+      - MONGO_URL=${MONGO_URL}
       - JWT_SECRET=${JWT_SECRET}
   orchestrator:
     build: ./orchestrator
@@ -25,6 +25,6 @@ services:
       - NODE_ENV=production
       - ENTITY_URL=${ENTITY_URL}
       - USER_URL=${USER_URL}
-      - ENV REDIS_PORT=${REDIS_PORT}
-      - ENV REDIS_HOST=${REDIS_HOST}
-      - ENV REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
