@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://83ac-103-147-8-244.ap.ngrok.io',
+  uri: 'https://mekdi.seirei.site/',
   cache: new InMemoryCache(),
 });
 
